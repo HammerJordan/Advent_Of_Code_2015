@@ -1,8 +1,9 @@
 package day2
 
-import Solution
+import Day
 
-class Day2 : Solution {
+fun main() = Day2().run()
+class Day2 : Day(2) {
     private fun getDimensions(line: String): List<Int> {
         return line
             .split("x")

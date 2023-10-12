@@ -1,8 +1,10 @@
 package day1
 
-import Solution
+import Day
 
-class Day1 : Solution {
+fun main() = Day1().run()
+
+class Day1 : Day(1) {
     override fun partOne(data: String): String {
         var floor = 0
         data.toCharArray().forEachIndexed { i, c ->

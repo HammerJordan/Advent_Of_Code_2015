@@ -1,8 +1,9 @@
 package day5
 
-import Solution
+import Day
 
-class Day5 : Solution {
+fun main() = Day5().run()
+class Day5 : Day(5) {
 
     fun interface Rule {
         fun isValid(data: String): Boolean
@@ -67,7 +68,6 @@ class Day5 : Solution {
 
         rules.forEachIndexed { i, rule ->
             val result = rule.isValid(data)
-            println("Rule:$i, Result:$result")
         }
 
         return data

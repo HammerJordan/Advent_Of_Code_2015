@@ -1,8 +1,9 @@
 package day3
 
-import Solution
+import Day
 
-class Day3 : Solution {
+fun main() = Day3().run()
+class Day3 : Day(3) {
 
     data class Point(val x: Int, val y: Int) {
         companion object {

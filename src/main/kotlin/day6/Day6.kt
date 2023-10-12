@@ -2,9 +2,10 @@
 
 package day6
 
-import Solution
+import Day
 
-class Day6 : Solution {
+fun main() = Day6().run()
+class Day6 : Day(6) {
 
     data class Cord(val x: Int, val y: Int) {
         companion object {

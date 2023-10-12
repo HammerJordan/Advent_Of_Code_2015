@@ -1,9 +1,10 @@
 package day4
 
-import Solution
+import Day
 import java.security.MessageDigest
 
-class Day4 : Solution {
+fun main() = Day4().run()
+class Day4 : Day(4) {
     fun ByteArray.toHex(): String = joinToString(separator = "") { eachByte -> "%02x".format(eachByte) }
 
     override fun partOne(data: String): String {
