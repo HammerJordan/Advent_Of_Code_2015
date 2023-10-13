@@ -1,7 +1,7 @@
 package day9
 
 import Day
-import java.util.*
+import util.getPermutations
 
 fun main() = Day9().run()
 class Day9 : Day(9) {
@@ -36,8 +36,7 @@ class Day9 : Day(9) {
     }
 
     fun getAllPossibleRoutes(routes: CityRoutes): List<Pair<String, Int>> {
-        val possiblePaths = mutableListOf<List<String>>()
-        permutationsRecursive(routes.cities.toList(), 0, possiblePaths)
+        val possiblePaths = routes.cities.getPermutations()
 
 
         val result = mutableListOf<Pair<String, Int>>()
@@ -60,14 +59,7 @@ class Day9 : Day(9) {
         return result
     }
 
-    private fun permutationsRecursive(input: List<String>, index: Int, answers: MutableList<List<String>>) {
-        if (index == input.lastIndex) answers.add(input.toList())
-        for (i in index..input.lastIndex) {
-            Collections.swap(input, index, i)
-            permutationsRecursive(input, index + 1, answers)
-            Collections.swap(input, i, index)
-        }
-    }
+
 
 
     override fun partOne(data: String): String {
