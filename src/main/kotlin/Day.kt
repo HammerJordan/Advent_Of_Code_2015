@@ -1,5 +1,4 @@
 import java.io.File
-import java.lang.Exception
 
 abstract class Day(private val day: Int) {
     private val path: String get() = "src/main/kotlin/day$day/Data.txt"
@@ -26,5 +25,7 @@ abstract class Day(private val day: Int) {
         }
 
     }
+
+
 
 }
