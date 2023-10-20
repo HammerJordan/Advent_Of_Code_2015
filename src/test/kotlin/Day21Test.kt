@@ -8,8 +8,8 @@ class Day21Test {
 
     @Test
     fun simCombatRound() {
-        val player = Day21.Attacker(8, 5, 5)
-        val boss = Day21.Attacker(12, 7, 2)
+        val player = Day21.Character(8, 5, 5)
+        val boss = Day21.Character(12, 7, 2)
 
         Assertions.assertFalse(day.simulateCombatRound(player, boss))
 

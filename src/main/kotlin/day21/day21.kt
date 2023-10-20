@@ -66,7 +66,7 @@ class Day21 : Day(21) {
         }
     }
 
-    open class Attacker(val startHitPoints: Int, val startDamage: Int, val startArmor: Int) {
+    open class Character(val startHitPoints: Int, val startDamage: Int, val startArmor: Int) {
         var hitPoints = startHitPoints
         val isDead get() = hitPoints <= 0
         open val damage get() = startDamage
@@ -85,11 +85,11 @@ class Day21 : Day(21) {
 
 
         companion object {
-            fun fromString(input: String): Attacker {
+            fun fromString(input: String): Character {
                 val data = input
                     .lines()
                     .map { """(\d+)""".toRegex().find(it)!!.value.toInt() }
-                return Attacker(
+                return Character(
                     startHitPoints = data[0],
                     startDamage = data[1],
                     startArmor = data[2]
@@ -99,7 +99,7 @@ class Day21 : Day(21) {
         }
     }
 
-    open class Player(startHitPoints: Int, startDamage: Int, startArmor: Int) : Attacker(
+    open class Player(startHitPoints: Int, startDamage: Int, startArmor: Int) : Character(
         startHitPoints, startDamage,
         startArmor
     ) {
@@ -119,7 +119,7 @@ class Day21 : Day(21) {
         }
     }
 
-    fun simulateCombatRound(player: Attacker, boss: Attacker): Boolean {
+    fun simulateCombatRound(player: Character, boss: Character): Boolean {
         val playerDamage = player.damage
         boss.takeDamage(playerDamage)
         if (boss.isDead)
@@ -131,7 +131,7 @@ class Day21 : Day(21) {
         return player.isDead
     }
 
-    fun canPlayerBeatBoss(player: Attacker, boss: Attacker): Boolean {
+    fun canPlayerBeatBoss(player: Character, boss: Character): Boolean {
 
 
         while (true) {
@@ -145,7 +145,7 @@ class Day21 : Day(21) {
     override fun partOne(data: String): String {
         val winWith = mutableListOf<List<Item>>()
         val player = Player.default()
-        val boss = Attacker.fromString(data)
+        val boss = Character.fromString(data)
         val shop = Shop()
 
         for (combo in shop.getCombos()) {
@@ -165,7 +165,7 @@ class Day21 : Day(21) {
     override fun partTwo(data: String): String {
         val lossWith = mutableListOf<List<Item>>()
         val player = Player.default()
-        val boss = Attacker.fromString(data)
+        val boss = Character.fromString(data)
         val shop = Shop()
 
         for (combo in shop.getCombos()) {

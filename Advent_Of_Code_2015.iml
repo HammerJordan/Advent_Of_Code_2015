@@ -37,5 +37,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="io.kotest.assertions.core.jvm" level="project" />
   </component>
 </module>
